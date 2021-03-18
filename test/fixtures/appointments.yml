@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  belongs_to: 
+  date: MyString
+  price: MyString
+  work_performed: MyString
+  initial_a4_frequency: MyString
+  notes_for_customer: MyString
+
+two:
+  belongs_to: 
+  date: MyString
+  price: MyString
+  work_performed: MyString
+  initial_a4_frequency: MyString
+  notes_for_customer: MyString
