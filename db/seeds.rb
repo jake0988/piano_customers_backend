@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name:"Sam John", username: "sjohn", email: "sjohn@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456", number_of_pianos: 4)
-User.create(name:"Erving Smith", username: "esmith", email: "esmith@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
-User.create(name:"Hans Gettleman", username: "hgettlman", email: "hgettleman@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
+User.create(first_name: "Sam" , last_name: "John",  email: "sjohn@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456", number_of_pianos: 4)
+User.create(first_name: "Erving" , last_name: "Smith",  email: "esmith@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
+User.create(first_name:"Hans", last_name: "Gettleman",  email: "hgettleman@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
 
-Admin.create(username: "pianotech", email: "pianotech@tech.com", password_digest: "123456")
+Admin.create(email: "pianotech@tech.com", password_digest: "123456")
 
 Appointment.create(date: "01_4_20", price: "5000", work_performed: "pitch-raise", notes_for_customer: "piano could use some work", user_id: 1, initial_a4_frequency: "420")
 Appointment.create(date: "01_4_20", price: "6000", work_performed: "fine tuning", notes_for_customer: "piano could use more work", user_id: 1, initial_a4_frequency: "440")
