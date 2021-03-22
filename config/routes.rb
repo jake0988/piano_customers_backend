@@ -5,5 +5,4 @@ Rails.application.routes.draw do
          :users, only: [:index, :create]
     end
   end
-
 end
