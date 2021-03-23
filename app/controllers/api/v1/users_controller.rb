@@ -5,7 +5,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user.new(user_params)
+    @user = User.new(user_params)
+    byebug
     if @user.save
       render json: @user, status: :accepted
     else
@@ -16,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:first_name, :last_name, :email, :phone_number, :category_id, :address, :password, :number_of_pianos)
+    params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :notes, :category_id, :address, :password, :number_of_pianos)
   end
 
 end
