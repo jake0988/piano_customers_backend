@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-Piano.destroy_all
 Appointment.destroy_all
+Piano.destroy_all
 Admin.destroy_all
 
-User.create(first_name: "Sam" , last_name: "John",  email: "sjohn@gmail.com", address1: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456", number_of_pianos: 4)
-User.create(first_name: "Erving" , last_name: "Smith",  email: "esmith@gmail.com", address1: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
-User.create(first_name:"Hans", last_name: "Gettleman",  email: "hgettleman@gmail.com", address1: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
+User.create(first_name: "Sam" , last_name: "John",  email: "sjohn@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456", number_of_pianos: 4)
+User.create(first_name: "Erving" , last_name: "Smith",  email: "esmith@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
+User.create(first_name:"Hans", last_name: "Gettleman",  email: "hgettleman@gmail.com", address: "123-abc st.", phone_number: "(123) 123-1234", password_digest: "123456")
 
 
 Piano.create(model: "Steinway", serial: "09124WFEW", age: 200, image_url: "https://steinwaypianodb.imgix.net/584537/ABubinga1.jpg?&w=1080&h=auto", user_id: 1, private_technical_notes: "YIKES!")
