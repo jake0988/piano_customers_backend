@@ -1,4 +1,4 @@
 class Appointment < ApplicationRecord
   belongs_to :user
-  belongs_to :piano
+  has_many :pianos, through: :user
 end
