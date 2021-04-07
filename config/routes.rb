@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         resources :pianos, only: [:index, :create, :destroy] 
       end
       resources :appointments, only: [:create, :show ]
+      resources :admins, only: [:create, :show ]
     end
   end
 
