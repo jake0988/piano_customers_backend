@@ -1,9 +1,11 @@
 class User < ApplicationRecord
 
   has_many :pianos
+  belongs_to :admin
   has_many :appointments
   
   before_save :validate_not_empty
+  after_create :set_default_admin
 
   protected
 
@@ -19,4 +21,7 @@ class User < ApplicationRecord
       return false
   end
 
+  def set_default_admin
+    self.admin_id = Admin.first.id if order.nil?
+  end
 end

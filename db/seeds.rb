@@ -23,7 +23,7 @@ b.pianos.create(model: "Mason & Hamlin", serial: "lkSFns42", age: 49, image_url:
 c.pianos.create(model: "Boston", serial: "lkjans42", age: 3, image_url: "https://www.ebay.com/itm/Upright-Piano-Ivers-and-Pond-/141890711197", private_technical_notes: "none too shabby!")
 
 
-Admin.create(email: "pianotech@tech.com", password_digest: "123456")
+Admin.create(username: "MrPianos" email: "pianotech@tech.com", password_digest: "123456")
 
 a.appointments << Appointment.create(date: "01_4_20", price: "5000", work_performed: "pitch-raise", notes_for_customer: "piano could use some work", initial_a4_frequency: "420")
 a.appointments << Appointment.create(date: "01_4_20", price: "6000", work_performed: "fine tuning", notes_for_customer: "piano could use more work", initial_a4_frequency: "440")

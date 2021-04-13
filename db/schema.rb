@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_235503) do
+ActiveRecord::Schema.define(version: 2021_04_12_235601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_04_06_235503) do
     t.text "password_digest"
     t.text "email"
     t.string "username"
-    t.string "avatar"
   end
 
   create_table "appointments", force: :cascade do |t|
@@ -59,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_235503) do
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "admin_id"
   end
 
   add_foreign_key "appointments", "pianos"

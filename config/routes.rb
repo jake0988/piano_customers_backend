@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       end
       resources :appointments, only: [:create, :show ]
       resources :admins, only: [:create, :show ]
+      post '/login', to: 'auth/#create'
+      get '/profile', to: 'admins/#profile'
     end
   end
 
