@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :create, :update, :destroy] do
         resources :pianos, only: [:index, :create, :destroy] 
       end
-      resources :appointments, only: [:create, :show ]
-      resources :admins, only: [:create, :show ]
+      # resources :appointments, only: [:create, :show ]
+      # resources :admins, only: [:create, :show ]
     end
   end
 
