@@ -24,10 +24,3 @@ c.pianos.create(model: "Boston", serial: "lkjans42", age: 3, image_url: "https:/
 
 
 Admin.create(email: "pianotech@tech.com", password_digest: "123456")
-
-a.appointments << Appointment.create(date: "01_4_20", price: "5000", work_performed: "pitch-raise", notes_for_customer: "piano could use some work", initial_a4_frequency: "420")
-a.appointments << Appointment.create(date: "01_4_20", price: "6000", work_performed: "fine tuning", notes_for_customer: "piano could use more work", initial_a4_frequency: "440")
-b.appointments << Appointment.create(date: "01_3_20", price: "4000", work_performed: "replaced hammer", notes_for_customer: "piano could use some work", initial_a4_frequency: "430")
-c.appointments << Appointment.create(date: "01_2_20", price: "2000", work_performed: "string splice", notes_for_customer: "piano could use some work", initial_a4_frequency: "410")
-
-
