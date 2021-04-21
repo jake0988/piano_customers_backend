@@ -1,12 +1,13 @@
 class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
-    # byebug
     render json: UserSerializer.new(@users)
   end
 
   def create
+    byebug
     @user = User.create(user_params)
+    
     if @user.save
       # byebug
       render json: UserSerializer.new(@user), status: :accepted
