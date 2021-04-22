@@ -1,7 +1,6 @@
 class User < ApplicationRecord
 
   has_many :pianos
-  
   # before_save :validate_not_empty
   # validates uniqueness: true
 

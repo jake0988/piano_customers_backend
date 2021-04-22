@@ -6,6 +6,7 @@ class Api::V1::PianosController < ApplicationController
   end
 
   def create
+    
     byebug
     piano = Piano.create(piano_params)
  

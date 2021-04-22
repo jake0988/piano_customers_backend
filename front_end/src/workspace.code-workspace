@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "piano_customers_backend",
+			"path": "../../piano_customers_backend"
+		},
+		{
+			"name": "piano_customers_frontend",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "piano_customers_frontend"
+	}
+}
