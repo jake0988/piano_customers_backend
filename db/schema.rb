@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_235601) do
+ActiveRecord::Schema.define(version: 2021_03_22_192120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_235601) do
   create_table "admins", force: :cascade do |t|
     t.text "password_digest"
     t.text "email"
-    t.string "username"
   end
 
   create_table "appointments", force: :cascade do |t|
@@ -30,21 +29,19 @@ ActiveRecord::Schema.define(version: 2021_04_12_235601) do
     t.text "notes_for_customer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "piano_id"
-    t.index ["piano_id"], name: "index_appointments_on_piano_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "pianos", force: :cascade do |t|
     t.bigint "user_id"
     t.text "model"
+    t.text "make"
     t.text "serial"
     t.integer "age"
     t.text "image_url"
     t.text "private_technical_notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "make"
     t.index ["user_id"], name: "index_pianos_on_user_id"
   end
 
@@ -55,11 +52,10 @@ ActiveRecord::Schema.define(version: 2021_04_12_235601) do
     t.integer "number_of_pianos"
     t.string "technician_notes"
     t.string "address"
-    t.string "phone_number"
+    t.string "password_digest"
+    t.integer "phone_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "admin_id"
   end
 
-  add_foreign_key "appointments", "pianos"
 end

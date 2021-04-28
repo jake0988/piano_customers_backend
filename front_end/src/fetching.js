@@ -24,9 +24,9 @@ getPianosFetch(user, first, last) {
     .catch(err => console.log("Your errors", err));
   }
 
- async patchFetch(id, first_name, last_name,  email, address, phone_number, notes) {
+ patchFetch(id, first_name, last_name,  email, address, phone_number, notes) {
     const bodyData = {first_name, last_name, email, address, phone_number, notes}
-    await this.adapter.fetchPatchCustomer(id, bodyData)
+     this.adapter.fetchPatchCustomer(id, bodyData)
     .then(jsonData => {
       console.log(jsonData)
       const user = User.findUser(id)
@@ -55,9 +55,9 @@ postFetch(first_name, last_name, email, phone_number, address, technician_notes)
   .catch(err => console.log("Your errors", err));
   }
 
- async postPianoFetch(user_id, make, model, serial, age, private_technical_notes, image_url) {
+ postPianoFetch(user_id, make, model, serial, age, private_technical_notes, image_url) {
     const bodyData = {piano: {make, model, serial, age, private_technical_notes, image_url, user_id}};
-     await this.adapter.fetchPostPiano(user_id, bodyData)
+      this.adapter.fetchPostPiano(user_id, bodyData)
     .then(piano => {
       debugger
       const rPiano = piano.data;

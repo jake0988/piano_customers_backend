@@ -5,10 +5,8 @@ class Users < ActiveRecord::Migration[6.0]
     t.string :last_name
     t.string :email
     t.integer :number_of_pianos
-    t.string :customer_notes
     t.string :technician_notes
-    t.string :address1
-    t.string :address2
+    t.string :address
     t.string :password_digest
     t.integer :phone_number
 
