@@ -36,11 +36,14 @@ class Adapter {
   fetchDelete(user) {
     // const wind = window
     // if (confirmDelete(wind)) {
+      const child = document.querySelector(`div[data-id="${user}"]`)
+      const delUser = document.querySelector('#user-container')
+      delUser.removeChild(child)
       this.delete(`${this.baseUrl}/${user}`)
 
-    .then(user => {
-      location.reload()
-  })
+    // .then(user => {
+    //   debugger
+  // })
 }
 
 

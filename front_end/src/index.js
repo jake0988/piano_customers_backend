@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const addUserForm = document.querySelector('#add-user-form')
    
    addUserForm.addEventListener('submit', (e) => {
+     e.preventDefault()
      const app = new App
      app.eventFormHandler(e)
    })
@@ -39,8 +40,13 @@ function patchSequence(e, user) {
 function updateUser(e) {
   const dataId = e.target.dataset.id
   const user = User.findUser(dataId)
+  patchUserInfo(user)
+  const div = document.createElement('div');
+  debugger
+  div.innerHTML = user.renderUpdateUser();
+
+  document.querySelector("#user-container").prependChild(div)
   
-  document.getElementById("user-container").innerHTML = user.renderUpdateUser()
   // user form still shows
   document.getElementById('user-patch-form').addEventListener('submit', e => {
   e.preventDefault()
@@ -49,6 +55,12 @@ function updateUser(e) {
   }
   )}
 
+  function patchUserInfo(user) {
+  const userDiv = document.querySelector(`div[data-id="${user}"]`)
+  debugger
+  user.id = user
+  user.first_name = userDiv 
+}
 
 function deletePianolistener(piano) {
   const pianoContainer = document.querySelector(`#piano-${piano.id}`)

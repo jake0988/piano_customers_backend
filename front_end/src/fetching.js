@@ -28,9 +28,14 @@ getPianosFetch(user, first, last) {
     const bodyData = {first_name, last_name, email, address, phone_number, notes}
      this.adapter.fetchPatchCustomer(id, bodyData)
     .then(jsonData => {
-      console.log(jsonData)
       const user = User.findUser(id)
-      location.reload()
+      // const div = document.createElement('div');
+      // div.innerHTML = user.renderUpdateUser();
+
+      // document.querySelector("#user-container").prependChild(div)
+      const child = document.querySelector(`div[data-id="${user}"]`)
+      const delUser = document.querySelector('#user-container')
+      debugger
       // document.getElementById("user-container").innerHTML = ""
     })
     .catch(err => console.log("Your errors", err));
