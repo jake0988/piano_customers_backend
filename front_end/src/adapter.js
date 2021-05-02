@@ -40,41 +40,17 @@ class Adapter {
       const delUser = document.querySelector('#user-container')
       delUser.removeChild(child)
       this.delete(`${this.baseUrl}/${user}`)
-
-    // .then(user => {
-    //   debugger
   // })
 }
 
-
-// fetchPostCustomer() {
-//   const data = { user: {first_name: 'example'} };
-// return fetch(this.baseUrl, {
-//   method: 'POST', // or 'PUT'
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify(data),
-// })
-// .then(response => response.json())
-// .then(data => {
-//   console.log('Success:', data);
-// })
-// .catch((error) => {
-//   console.error('Error:', error);
-// });
-// }
   deletePiano(piano) {
     // const wind = window
     // if (confirmDelete(wind)) {
       this.delete(`http://localhost:3000/api/v1/pianos/${piano}`)
       // const delUser = document.querySelector('#user-container')
        document.querySelector(`#piano-container-${piano}`).innerHTML = ""
-
-      this.fetchCustomers()
-      debugger
-  // }
-  }
+      
+    }
   
   post(url, bodyData) {
     return fetch(url, {
