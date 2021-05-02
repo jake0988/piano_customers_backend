@@ -15,13 +15,20 @@ document.addEventListener('DOMContentLoaded', function () {
    })
   document.getElementById('user-container').addEventListener('click', e => {
     patchSequence(e)
+    // e.path[3].dataset.id 
   })
 })
 
+function backToGet() {
+  document.querySelector("#user-container").innerHTML = ""
+  const fetching = new Fetching
+  fetching.getFetch()
+}
 
-function patchSequence(e, user) {
+function patchSequence(e) {
   document.removeEventListener('click', e => patchSequence(e, user))
   console.log(e.target)
+  // debugger
   //can't attach the listener to the edit button.
     if(e.target.matches("button.btn")) { 
       updateUser(e)
@@ -31,23 +38,15 @@ function patchSequence(e, user) {
       adapter.fetchDelete(e.target.dataset.id)
       }
     else if(e.target.value === "Delete Piano") { 
-      debugger
       const adapter = new Adapter;
-      adapter.deletePiano(e.target.dataset.id, user)
+      adapter.deletePiano(e.target.dataset.id)
       }
 }
 
 function updateUser(e) {
   const dataId = e.target.dataset.id
   const user = User.findUser(dataId)
-  patchUserInfo(user)
-  const div = document.createElement('div');
-  debugger
-  div.innerHTML = user.renderUpdateUser();
-
-  document.querySelector("#user-container").prependChild(div)
-  
-  // user form still shows
+  document.querySelector("#piano-form-name").innerHTML = user.renderUpdateUser();
   document.getElementById('user-patch-form').addEventListener('submit', e => {
   e.preventDefault()
   const app = new App
@@ -55,12 +54,12 @@ function updateUser(e) {
   }
   )}
 
-  function patchUserInfo(user) {
-  const userDiv = document.querySelector(`div[data-id="${user}"]`)
-  debugger
-  user.id = user
-  user.first_name = userDiv 
-}
+//   function patchUserInfo(user) {
+//   const userDiv = document.querySelector(`div[data-id="${user}"]`)
+//   debugger
+//   user.id = user
+//   user.first_name = userDiv 
+// }
 
 function deletePianolistener(piano) {
   const pianoContainer = document.querySelector(`#piano-${piano.id}`)
@@ -76,9 +75,9 @@ function deletePianolistener(piano) {
 function createPianoForm(user, first, last) {
   const pianoForm = document.querySelector('div.form-container')
   pianoForm.innerHTML = Piano.addPiano(user, first, last)
-  const container = document.querySelector('div.form-container')
-  container.addEventListener('click', e => {
-    
+  // const container = document.querySelector('div.form-container')
+  pianoForm.addEventListener('click', e => {
+    e.preventDefault()
     if(e.target.type == 'submit') {
       const app = new App
       app.pianoEventFormHandler(user)

@@ -15,9 +15,11 @@ getPianosFetch(user, first, last) {
   getFetch() {
     this.adapter.fetchCustomers()
     .then(users => {
+      const userContainer = document.querySelector("#user-container")
+      // .innerHTML = " "
       users.data.forEach(user => {
         let newUser = new User(user, user.attributes)
-        const userContainer = document.getElementById("user-container")
+        
         userContainer.innerHTML += newUser.renderUser()
       })
     })
@@ -27,18 +29,22 @@ getPianosFetch(user, first, last) {
  patchFetch(id, first_name, last_name,  email, address, phone_number, notes) {
     const bodyData = {first_name, last_name, email, address, phone_number, notes}
      this.adapter.fetchPatchCustomer(id, bodyData)
-    .then(jsonData => {
-      const user = User.findUser(id)
-      // const div = document.createElement('div');
-      // div.innerHTML = user.renderUpdateUser();
-
-      // document.querySelector("#user-container").prependChild(div)
-      const child = document.querySelector(`div[data-id="${user}"]`)
-      const delUser = document.querySelector('#user-container')
-      debugger
+    .then(users => {
+      document.getElementById("user-container").innerHTML = ""
+      this.getFetch()
+      // const user = User.findUser(id)
+      // // const div = document.createElement('div');
+      // // div.innerHTML = user.renderUpdateUser();
+      // // document.querySelector("#user-container").prependChild(div)
+      // const div = document.querySelector('#user-container')
+      // const child = div.querySelector(`[data-id='${user.id}']`)
+      //   let newUser = new User(user.id, user)
+      //   child.innerHTML += newUser.renderUser()
+      //   debugger
+      })
       // document.getElementById("user-container").innerHTML = ""
-    })
-    .catch(err => console.log("Your errors", err));
+    // })
+    // .catch(err => console.log("Your errors", err));
   }
 
 postFetch(first_name, last_name, email, phone_number, address, technician_notes) {
@@ -55,7 +61,6 @@ postFetch(first_name, last_name, email, phone_number, address, technician_notes)
     const newUser = new User(rUser, rUser.attributes);
     userContainer.innerHTML += newUser.renderUser();
   
-    location.reload()
   })
   .catch(err => console.log("Your errors", err));
   }
@@ -64,12 +69,11 @@ postFetch(first_name, last_name, email, phone_number, address, technician_notes)
     const bodyData = {piano: {make, model, serial, age, private_technical_notes, image_url, user_id}};
       this.adapter.fetchPostPiano(user_id, bodyData)
     .then(piano => {
-      debugger
-      const rPiano = piano.data;
-      const newPiano = new Piano(rPiano, rPiano.attributes);
-      document.getElementById("piano-container").innerHTML += newPiano.renderPiano();
+      this.getFetch()
+      // const rPiano = piano.data;
+      // const newPiano = new Piano(rPiano, rPiano.attributes);
+      // document.getElementById("piano-container").innerHTML += newPiano.renderPiano();
 
-      // location.reload();
   })
     .catch(err => console.log("Your errors", err))
 }

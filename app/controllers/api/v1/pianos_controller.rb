@@ -6,14 +6,12 @@ class Api::V1::PianosController < ApplicationController
   end
 
   def create
-    
-    byebug
     piano = Piano.create(piano_params)
  
     if piano.save
       render json: PianoSerializer.new(piano), status: :accepted
     else
-      render jsob: { errors: piano.errors.full_messages }
+      render json: { errors: piano.errors.full_messages }
     end
   end
 

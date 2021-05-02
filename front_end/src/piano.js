@@ -15,12 +15,12 @@ class Piano {
 
 renderPiano() {
   return `
-  <div id="show-piano-${this.id}">
-  <a href="javascript:hidePiano(${this.id}, true, ${this.user_id})">Show Piano</a>
+  <a href="javascript:hidePiano(${this.id}, true, ${this.user_id})"></a>
   </div>
   <div data-id=${this.id}>
   <div id=piano-${this.id}>
   <div>
+  <a href="javascript:backToGet()">Back To Customers Show Page</a>
     <p>Piano Owner: ${this.first_name} ${this.last_name}</p>
   </div>
 
@@ -47,6 +47,7 @@ renderPiano() {
   </div>
   `
 }
+
 
 static addPiano(id, first, last) {
   return `

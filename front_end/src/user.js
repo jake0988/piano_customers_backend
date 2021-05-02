@@ -32,28 +32,29 @@ class User {
 
   renderUpdateUser() {
     return `
+    <h3>Edit ${this.first_name} ${this.last_name}!</h3>
+    <form-group>
+        <div class="row">
+          <div class="col">
     <form data-id=${this.id} id="user-patch-form">
       <label for="fname">First Name:</label>
-        <input id="fname" type="text" value=${this.first_name}/>
+        <input id="fname" type="text" value='${this.first_name}'/>
       <br>
       <label for="lname">Last Name:</label>
-        <input id="lname" type="text" value=${this.last_name}/>
+        <input id="lname" type="text" value='${this.last_name}'/>
       <br>
       <label for="email">Email:</label>
-        <input id="email" type="text" value=${this.email}/>
+        <input id="email" type="text" value='${this.email}'/>
       <br>
       <label for="address">Address:</label>
       <br>
-        <input id="address" type="text" value=${this.address}
-      <br>
-      <label for="npianos">Number of Pianos:</label>
-        <input id="npianos" type="text" value=${this.number_of_pianos}
+        <input id="address" type="text" value='${this.address}'/>
       <br>
       <label for="pnumber">Phone Number:</label>
-        <input id="pnumber" type="text" value=${this.phone_number}
+        <input id="pnumber" type="text" value='${this.phone_number}'/>
       <br>
       <label for="notes">Notes:</label>
-        <input id="notes" type="text" value=${this.technician_notes}
+        <input id="notes" type="text" value='${this.technician_notes}'>
       <br>
       <br>
         <input data-id=${this.id} type="submit" name="edit">

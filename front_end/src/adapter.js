@@ -64,12 +64,15 @@ class Adapter {
 //   console.error('Error:', error);
 // });
 // }
-  deletePiano(piano, user) {
+  deletePiano(piano) {
     // const wind = window
     // if (confirmDelete(wind)) {
-      this.delete(`${this.baseUrl}/${user}/pianos/${piano}`)
+      this.delete(`http://localhost:3000/api/v1/pianos/${piano}`)
+      // const delUser = document.querySelector('#user-container')
+       document.querySelector(`#piano-container-${piano}`).innerHTML = ""
 
-    .then(location.reload())
+      this.fetchCustomers()
+      debugger
   // }
   }
   
