@@ -7,7 +7,7 @@ getPianosFetch(user, first, last) {
   this.adapter.fetchGetPianos(user)
   .then(pianos => {
     createPianoForm(user, first, last)
-    showPianos(pianos, user) 
+    showPianos(pianos, user)
     })
     .catch((err) => console.log("Your errors", err))
 }
@@ -26,12 +26,17 @@ getPianosFetch(user, first, last) {
     .catch(err => console.log("Your errors", err));
   }
 
- patchFetch(id, first_name, last_name,  email, address, phone_number, notes) {
-    const bodyData = {first_name, last_name, email, address, phone_number, notes}
+ patchFetch(id, first_name, last_name,  email, address, phone_number, technician_notes) {
+    const bodyData = {first_name, last_name, email, address, phone_number, technician_notes}
      this.adapter.fetchPatchCustomer(id, bodyData)
     .then(users => {
       document.getElementById("user-container").innerHTML = ""
+      return users
+    })
+    .then(users => {
+      debugger
       this.getFetch()
+    })
       // const user = User.findUser(id)
       // // const div = document.createElement('div');
       // // div.innerHTML = user.renderUpdateUser();
@@ -41,7 +46,6 @@ getPianosFetch(user, first, last) {
       //   let newUser = new User(user.id, user)
       //   child.innerHTML += newUser.renderUser()
       //   debugger
-      })
       // document.getElementById("user-container").innerHTML = ""
     // })
     // .catch(err => console.log("Your errors", err));
@@ -67,15 +71,19 @@ postFetch(first_name, last_name, email, phone_number, address, technician_notes)
 
  postPianoFetch(user_id, make, model, serial, age, private_technical_notes, image_url) {
     const bodyData = {piano: {make, model, serial, age, private_technical_notes, image_url, user_id}};
-      this.adapter.fetchPostPiano(user_id, bodyData)
-    .then(piano => {
+      // this.adapter.fetchPostPiano(user_id, bodyData)
+      return this.adapter.fetchPostPiano(user_id, bodyData)
+    .then(users => {
+      document.getElementById("user-container").innerHTML = ""
       this.getFetch()
+    })
+    // .then(piano => {
+    //   this.getFetch()
       // const rPiano = piano.data;
       // const newPiano = new Piano(rPiano, rPiano.attributes);
       // document.getElementById("piano-container").innerHTML += newPiano.renderPiano();
 
-  })
-    .catch(err => console.log("Your errors", err))
+  // })
+    // .catch(err => console.log("Your errors", err))
 }
 }
-

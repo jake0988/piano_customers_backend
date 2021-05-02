@@ -3,6 +3,7 @@ class User {
     this.id = user.id;
     this.first_name = usersAttributes.first_name;
     this.last_name = usersAttributes.last_name;
+    this.email = usersAttributes.email;
     this.address = usersAttributes.address;
     this.phone_number = usersAttributes.phone_number;
     this.technician_notes = usersAttributes.technician_notes;
