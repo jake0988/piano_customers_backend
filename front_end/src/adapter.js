@@ -43,14 +43,19 @@ class Adapter {
   // })
 }
 
-  deletePiano(piano) {
-    // const wind = window
-    // if (confirmDelete(wind)) {
+  deletePiano(piano, user) {
+      const pianoDiv = document.querySelector(`div[data-id="${piano}"]`).innerHTML = ""
       this.delete(`http://localhost:3000/api/v1/pianos/${piano}`)
-      // const delUser = document.querySelector('#user-container')
-       document.querySelector(`#piano-container-${piano}`).innerHTML = ""
+      .then(users => {
+        const userDivs = document.querySelector('#user-container').innerHTML = ""
+        const fetching = new Fetching
+        fetching.getFetch()
+      })
+      // document.querySelector(`#piano-container-${piano}`).innerHTML = ""
+      // debugger
+}
       
-    }
+    
   
   post(url, bodyData) {
     return fetch(url, {

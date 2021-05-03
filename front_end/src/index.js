@@ -40,7 +40,7 @@ function patchSequence(e) {
       }
     else if(e.target.value === "Delete Piano") { 
       const adapter = new Adapter;
-      adapter.deletePiano(e.target.dataset.id)
+      adapter.deletePiano(e.target.dataset.id, e.target.id)
       }
 }
 
@@ -68,7 +68,7 @@ function deletePianolistener(piano) {
   pianoContainer.addEventListener('click', e => {
     if(e.target.type == "submit") {
       const adapter = new Adapter
-      adapter.deletePiano(piano.attributes.user_id, piano.id)
+      adapter.deletePiano(piano.id, piano.attributes.user_id,)
     }
     })
 }

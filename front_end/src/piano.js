@@ -39,7 +39,7 @@ renderPiano() {
     </ul>
     <a href="javascript:hidePiano(${this.id}, false)">Hide Piano</a>
     
-    <input data-id="${this.id}" class="delete-piano" type="submit" value="Delete Piano">
+    <input data-id="${this.id}" id=${this.user_id} class="delete-piano" type="submit" value="Delete Piano">
     <div
     <hr>
   </div>
